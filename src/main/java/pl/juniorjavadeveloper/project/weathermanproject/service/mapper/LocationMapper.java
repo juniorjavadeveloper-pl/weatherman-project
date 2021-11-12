@@ -18,4 +18,12 @@ public class LocationMapper {
         LOGGER.info("from(...) = {}", locationEntity);
         return locationEntity;
     }
+
+    public LocationModel from(LocationEntity locationEntity) {
+        LOGGER.info("from({})", locationEntity);
+        ModelMapper modelMapper = new ModelMapper();
+        LocationModel locationModel = modelMapper.map(locationEntity, LocationModel.class);
+        LOGGER.info("from(...) = {}", locationModel);
+        return locationModel;
+    }
 }

@@ -1,5 +1,7 @@
 package pl.juniorjavadeveloper.project.weathermanproject.repository.entity;
 
+import pl.juniorjavadeveloper.project.weathermanproject.web.model.WeatherModel;
+
 //@Entity(name = "locations")
 //@Table(name = "LOCATIONS")
 public class LocationEntity {
@@ -13,4 +15,7 @@ public class LocationEntity {
 
     private double latitude;
     private double longitude;
+
+//    @Embedded
+    private WeatherEntity weather;
 }
