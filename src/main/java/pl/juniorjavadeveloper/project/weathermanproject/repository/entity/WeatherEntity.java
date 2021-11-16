@@ -1,6 +1,8 @@
 package pl.juniorjavadeveloper.project.weathermanproject.repository.entity;
 
-//@Embeddable
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class WeatherEntity {
     private double temperature;
     private int pressure;
