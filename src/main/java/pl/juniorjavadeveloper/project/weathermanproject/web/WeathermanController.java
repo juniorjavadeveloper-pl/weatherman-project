@@ -2,15 +2,15 @@ package pl.juniorjavadeveloper.project.weathermanproject.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.juniorjavadeveloper.project.weathermanproject.service.WeathermanService;
+import pl.juniorjavadeveloper.project.weathermanproject.service.WeathermanManagerService;
 
 @Controller
 @RequestMapping(value = "/weatherman")
 public class WeathermanController {
-    private final WeathermanService weathermanService;
+    private final WeathermanManagerService weathermanManagerService;
 
-    public WeathermanController(WeathermanService weathermanService) {
-        this.weathermanService = weathermanService;
+    public WeathermanController(WeathermanManagerService weathermanManagerService) {
+        this.weathermanManagerService = weathermanManagerService;
     }
 
     // L - list
