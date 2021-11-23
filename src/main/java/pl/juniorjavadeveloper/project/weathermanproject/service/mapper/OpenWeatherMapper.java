@@ -2,6 +2,7 @@ package pl.juniorjavadeveloper.project.weathermanproject.service.mapper;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import pl.juniorjavadeveloper.project.weathermanproject.external.api.openweather.model.current.Coord;
 import pl.juniorjavadeveloper.project.weathermanproject.external.api.openweather.model.current.Main;
 import pl.juniorjavadeveloper.project.weathermanproject.external.api.openweather.model.current.OpenWeatherApiCurrentWeatherDataResponse;
@@ -9,6 +10,7 @@ import pl.juniorjavadeveloper.project.weathermanproject.external.api.openweather
 import pl.juniorjavadeveloper.project.weathermanproject.external.api.openweather.model.current.Wind;
 import pl.juniorjavadeveloper.project.weathermanproject.web.model.LocationModel;
 
+@Component
 public class OpenWeatherMapper {
     private static final Logger LOGGER = LoggerFactory.getLogger(OpenWeatherMapper.class);
 

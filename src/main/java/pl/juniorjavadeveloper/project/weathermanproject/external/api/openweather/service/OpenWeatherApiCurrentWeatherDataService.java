@@ -10,12 +10,14 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 import pl.juniorjavadeveloper.project.weathermanproject.external.api.openweather.model.current.OpenWeatherApiCurrentWeatherDataResponse;
 import pl.juniorjavadeveloper.project.weathermanproject.service.mapper.LocationMapper;
 import pl.juniorjavadeveloper.project.weathermanproject.web.model.WeatherDataRequestModel;
 
 import java.io.IOException;
 
+@Service
 public class OpenWeatherApiCurrentWeatherDataService {
     // API Docs - https://openweathermap.org/current (Current weather data)
     // https://www.latlong.net - Latitude and Longitude Finder
