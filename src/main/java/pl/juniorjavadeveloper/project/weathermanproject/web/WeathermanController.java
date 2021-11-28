@@ -14,7 +14,7 @@ import pl.juniorjavadeveloper.project.weathermanproject.web.model.WeatherDataReq
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/weatherman")
+@RequestMapping(value = "/weatherman/locations")
 public class WeathermanController {
     private static final Logger LOGGER = LoggerFactory.getLogger(WeathermanController.class);
 
@@ -29,21 +29,21 @@ public class WeathermanController {
     public String listView() {
         LOGGER.info("listView()");
         List<LocationModel> locations = weathermanManagerService.list();
-        return "locations";
+        return "weatherman/locations";
     }
 
     // C - create aka. addLocation(...)
-    @GetMapping
+    @GetMapping(value = "/add")
     public String createView() {
         LOGGER.info("createView()");
-        return "location-add";
+        return "weatherman/location-add";
     }
 
-    @PostMapping
+    @PostMapping(value = "/add")
     public String create(@ModelAttribute WeatherDataRequestModel weatherDataRequestModel) {
         LOGGER.info("create({})", weatherDataRequestModel);
         LocationModel createdLocationModel = weathermanManagerService.create(weatherDataRequestModel);
-        return "locations";
+        return "redirect:/weatherman/locations";
     }
 
     // R - read
