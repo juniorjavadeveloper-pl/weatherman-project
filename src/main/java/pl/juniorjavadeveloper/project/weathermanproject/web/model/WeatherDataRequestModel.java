@@ -9,6 +9,9 @@ public class WeatherDataRequestModel {
 
     private int days = 1;
 
+    public WeatherDataRequestModel() {
+    }
+
     public WeatherDataRequestModel(String city, String countryCode) {
         this.city = city;
         this.countryCode = countryCode;

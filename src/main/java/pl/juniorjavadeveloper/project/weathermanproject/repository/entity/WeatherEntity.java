@@ -4,45 +4,57 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class WeatherEntity {
-    private double temperature;
-    private int pressure;
-    private int humidity;
-    private double windSpeed;
+    private Double temperature;
+    private Integer pressure;
+    private Integer humidity;
+    private Double windSpeed;
+
+    // https://issues.redhat.com/browse/HIBERNATE-50
+//    @Formula("0")
+//    private int dummy;
 
     public WeatherEntity() {
     }
 
-    public double getTemperature() {
+    public Double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(double temperature) {
+    public void setTemperature(Double temperature) {
         this.temperature = temperature;
     }
 
-    public int getPressure() {
+    public Integer getPressure() {
         return pressure;
     }
 
-    public void setPressure(int pressure) {
+    public void setPressure(Integer pressure) {
         this.pressure = pressure;
     }
 
-    public int getHumidity() {
+    public Integer getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(int humidity) {
+    public void setHumidity(Integer humidity) {
         this.humidity = humidity;
     }
 
-    public double getWindSpeed() {
+    public Double getWindSpeed() {
         return windSpeed;
     }
 
-    public void setWindSpeed(double windSpeed) {
+    public void setWindSpeed(Double windSpeed) {
         this.windSpeed = windSpeed;
     }
+
+//    public int getDummy() {
+//        return dummy;
+//    }
+
+//    public void setDummy(int dummy) {
+//        this.dummy = dummy;
+//    }
 
     @Override
     public String toString() {
