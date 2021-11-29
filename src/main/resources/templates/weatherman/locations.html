@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Locations</title>
@@ -7,11 +7,11 @@
 <body>
 <div>
     <h1>Locations</h1>
-    <div>
-        <!-- locations list -->
+    <div th:each="location : ${locations}">
+        <div th:text="${location.city}"></div>
     </div>
     <div>
-        <a href="/weatherman/locations/add">Add location</a>
+        <a href="#" th:href="@{/weatherman/locations/add}">Add location</a>
     </div>
 </div>
 </body>
