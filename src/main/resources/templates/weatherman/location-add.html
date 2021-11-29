@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add location</title>
+</head>
+<body>
+<div>
+    <h1>Add location</h1>
+    <div>
+        <form action="#" th:action="@{/weatherman/locations/add}" th:object="${weatherDataRequestModel}" method="post">
+            <div>
+                <label for="location">Location name</label>
+                <input type="text" name="city" id="location">
+            </div>
+            <div>
+                <button type="submit">Save location</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

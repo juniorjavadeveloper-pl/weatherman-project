@@ -1,5 +1,6 @@
 package pl.juniorjavadeveloper.project.weathermanproject.service;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import pl.juniorjavadeveloper.project.weathermanproject.external.api.openweather.model.current.OpenWeatherApiCurrentWeatherDataResponse;
 import pl.juniorjavadeveloper.project.weathermanproject.external.api.openweather.service.OpenWeatherApiCurrentWeatherDataService;
@@ -8,11 +9,10 @@ import pl.juniorjavadeveloper.project.weathermanproject.web.model.LocationModel;
 import pl.juniorjavadeveloper.project.weathermanproject.web.model.WeatherDataRequestModel;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 @Service
 public class WeathermanManagerService {
-    private static final Logger LOGGER = Logger.getLogger(WeathermanManagerService.class.getName());
+    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(WeathermanManagerService.class);
 
     private final WeathermanService weathermanService;
     private final OpenWeatherApiCurrentWeatherDataService openWeatherApiCurrentWeatherDataService;
