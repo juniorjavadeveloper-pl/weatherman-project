@@ -47,11 +47,11 @@ public class WeathermanController {
 
     // R - read aka. currentWeather(...)
     @GetMapping(value = "/{id}/weather/current")
-    public String read(@RequestParam Long id, ModelMap modelMap) {
+    public String read(@PathVariable Long id, ModelMap modelMap) {
         LOGGER.info("read({})", id);
         LocationModel locationModel = weathermanManagerService.read(id);
         modelMap.addAttribute("locationWeatherCurrent", locationModel);
-        return "weather-current";
+        return "weatherman/weather-current";
     }
 
     // U - update
