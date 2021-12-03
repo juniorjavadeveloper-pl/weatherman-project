@@ -9,6 +9,7 @@ import pl.juniorjavadeveloper.project.weathermanproject.external.api.openweather
 import pl.juniorjavadeveloper.project.weathermanproject.external.api.openweather.model.current.Sys;
 import pl.juniorjavadeveloper.project.weathermanproject.external.api.openweather.model.current.Wind;
 import pl.juniorjavadeveloper.project.weathermanproject.web.model.LocationModel;
+import pl.juniorjavadeveloper.project.weathermanproject.web.model.WeatherModel;
 
 @Component
 public class OpenWeatherMapper {
@@ -17,6 +18,8 @@ public class OpenWeatherMapper {
     public LocationModel from(OpenWeatherApiCurrentWeatherDataResponse weatherDataResponse) {
         LOGGER.info("from(" + weatherDataResponse + ")");
         LocationModel locationModel = new LocationModel();
+        WeatherModel weatherModel = new WeatherModel();
+        locationModel.setWeather(weatherModel);
 
         if (weatherDataResponse != null) {
             Coord weatherDataResponseCoord = weatherDataResponse.getCoord();
@@ -29,15 +32,15 @@ public class OpenWeatherMapper {
             Main weatherDataResponseMain = weatherDataResponse.getMain();
             if (weatherDataResponseMain != null) {
                 LOGGER.info("adding weather main data...");
-//                locationModel.setTemperature(weatherDataResponseMain.getTemp());
-//                locationModel.setPressure(weatherDataResponseMain.getPressure());
-//                locationModel.setHumidity(weatherDataResponseMain.getHumidity());
+                weatherModel.setTemperature(weatherDataResponseMain.getTemp());
+                weatherModel.setPressure(weatherDataResponseMain.getPressure());
+                weatherModel.setHumidity(weatherDataResponseMain.getHumidity());
             }
 
             Wind weatherDataResponseWind = weatherDataResponse.getWind();
             if (weatherDataResponseWind != null) {
                 LOGGER.info("adding weather wind data...");
-//                locationModel.setWindSpeed(weatherDataResponseWind.getSpeed());
+                weatherModel.setWindSpeed(weatherDataResponseWind.getSpeed());
             }
 
             LOGGER.info("adding weather location info...");
