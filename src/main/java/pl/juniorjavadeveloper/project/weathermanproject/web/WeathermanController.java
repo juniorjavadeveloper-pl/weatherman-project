@@ -4,10 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.juniorjavadeveloper.project.weathermanproject.service.WeathermanManagerService;
 import pl.juniorjavadeveloper.project.weathermanproject.web.model.LocationModel;
 import pl.juniorjavadeveloper.project.weathermanproject.web.model.WeatherDataRequestModel;
@@ -48,8 +45,13 @@ public class WeathermanController {
         return "redirect:/weatherman/locations";
     }
 
-    // R - read
-    public void read() {
+    // R - read aka. currentWeather(...)
+    @GetMapping(value = "/{id}/weather/current")
+    public String read(@RequestParam Long id, ModelMap modelMap) {
+        LOGGER.info("read({})", id);
+        LocationModel locationModel = weathermanManagerService.read(id);
+        modelMap.addAttribute("locationWeatherCurrent", locationModel);
+        return "weather-current";
     }
 
     // U - update

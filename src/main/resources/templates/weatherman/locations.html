@@ -9,6 +9,7 @@
     <h1>Locations</h1>
     <div th:each="location : ${locations}">
         <div th:text="${location.city}"></div>
+        <a href="#" th:href="@{/weatherman/locations/__${location.id}__/weather/current">Current weather</a>
     </div>
     <div>
         <a href="#" th:href="@{/weatherman/locations/add}">Add location</a>

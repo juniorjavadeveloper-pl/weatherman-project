@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Location Weather Current</title>
+</head>
+<body>
+<div>
+    <h1><span th:text="${locationWeatherCurrent.city}"></span> location current weather</h1>
+    <div>
+        Temperature: <div th:text="${locationWeatherCurrent.weather.temperature}"></div>
+    </div>
+</div>
+</body>
+</html>
