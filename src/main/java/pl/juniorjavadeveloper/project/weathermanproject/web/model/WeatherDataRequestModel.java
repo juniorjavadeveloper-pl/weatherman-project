@@ -1,6 +1,9 @@
 package pl.juniorjavadeveloper.project.weathermanproject.web.model;
 
+import javax.validation.constraints.NotBlank;
+
 public class WeatherDataRequestModel {
+    @NotBlank(message = "Please enter location name")
     private String city;
     private String countryCode;
 

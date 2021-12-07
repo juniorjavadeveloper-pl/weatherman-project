@@ -10,8 +10,9 @@
     <div>
         <form action="#" th:action="@{/weatherman/locations/add}" th:object="${weatherDataRequestModel}" method="post">
             <div>
-                <label for="location">Location name</label>
-                <input type="text" name="city" id="location">
+                <label for="city">Location name</label>
+                <input type="text" id="city" th:field="*{city}">
+                <div th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City name Error</div>
             </div>
             <div>
                 <button type="submit">Save location</button>
