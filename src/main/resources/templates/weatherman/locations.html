@@ -16,7 +16,7 @@
 <div class="container-fluid">
     <h1>Locations</h1>
     <div>
-        <a href="#" th:href="@{/weatherman/locations/add}">Add location</a>
+        <a class="btn btn-dark" href="#" th:href="@{/weatherman/locations/add}">Add location</a>
     </div>
     <div>
         <table class="table table-striped">
@@ -29,9 +29,9 @@
             </thead>
             <tbody>
             <tr th:each="location, stat : ${locations}">
-                <th scope="row" th:text="${stat.count}">1</th>
-                <td th:text="${location.city}"></td>
-                <td><a href="#" th:href="@{/weatherman/locations/{id}/weather/current(id=${location.id})}">Current weather</a></td>
+                <th class="align-middle" scope="row" th:text="${stat.count}">1</th>
+                <td class="align-middle" th:text="${location.city}"></td>
+                <td><a class="btn btn-secondary" href="#" th:href="@{/weatherman/locations/{id}/weather/current(id=${location.id})}">Current weather</a></td>
             </tr>
             </tbody>
         </table>
