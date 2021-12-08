@@ -4,11 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.juniorjavadeveloper.project.weathermanproject.service.WeathermanManagerService;
 import pl.juniorjavadeveloper.project.weathermanproject.web.model.LocationModel;
 import pl.juniorjavadeveloper.project.weathermanproject.web.model.WeatherDataRequestModel;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -33,15 +35,22 @@ public class WeathermanController {
 
     // C - create aka. addLocation(...)
     @GetMapping(value = "/add")
-    public String createView() {
+    public String createView(ModelMap modelMap) {
         LOGGER.info("createView()");
+        modelMap.addAttribute("weatherDataRequestModel", new WeatherDataRequestModel());
         return "weatherman/location-add";
     }
 
     @PostMapping(value = "/add")
-    public String create(@ModelAttribute WeatherDataRequestModel weatherDataRequestModel) {
+    public String create(@Valid @ModelAttribute WeatherDataRequestModel weatherDataRequestModel,
+                         BindingResult bindingResult) {
         LOGGER.info("create({})", weatherDataRequestModel);
+        if (bindingResult.hasErrors()) {
+            LOGGER.info("create() validation error {}", bindingResult.getFieldErrors());
+            return "weatherman/location-add";
+        }
         LocationModel createdLocationModel = weathermanManagerService.create(weatherDataRequestModel);
+        LOGGER.info("create(...) = {}", createdLocationModel);
         return "redirect:/weatherman/locations";
     }
 
