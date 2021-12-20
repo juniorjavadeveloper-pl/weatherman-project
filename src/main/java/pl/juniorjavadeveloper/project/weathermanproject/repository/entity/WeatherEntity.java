@@ -1,19 +1,33 @@
 package pl.juniorjavadeveloper.project.weathermanproject.repository.entity;
 
-import javax.persistence.Embeddable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Embeddable
+@Entity
+@Table(name = "WEATHERS")
 public class WeatherEntity {
+    @Id
+    @GeneratedValue
+    private Long id;
+
     private Double temperature;
     private Integer pressure;
     private Integer humidity;
+    @Column(name = "WIND_SPEED")
     private Double windSpeed;
 
-    // https://issues.redhat.com/browse/HIBERNATE-50
-//    @Formula("0")
-//    private int dummy;
-
     public WeatherEntity() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Double getTemperature() {
@@ -48,18 +62,11 @@ public class WeatherEntity {
         this.windSpeed = windSpeed;
     }
 
-//    public int getDummy() {
-//        return dummy;
-//    }
-
-//    public void setDummy(int dummy) {
-//        this.dummy = dummy;
-//    }
-
     @Override
     public String toString() {
         return "WeatherEntity{" +
-                "temperature=" + temperature +
+                "id=" + id +
+                ", temperature=" + temperature +
                 ", pressure=" + pressure +
                 ", humidity=" + humidity +
                 ", windSpeed=" + windSpeed +
