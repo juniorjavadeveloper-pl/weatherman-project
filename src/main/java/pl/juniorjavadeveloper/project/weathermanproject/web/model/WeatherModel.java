@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class WeatherModel {
+    private Long id;
+
     private double temperature;
     private int pressure;
     private int humidity;

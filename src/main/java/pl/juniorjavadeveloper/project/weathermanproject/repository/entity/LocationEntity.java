@@ -1,13 +1,14 @@
 package pl.juniorjavadeveloper.project.weathermanproject.repository.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity(name = "locations")
+@Entity
 @Table(name = "LOCATIONS")
 public class LocationEntity {
     @Id
@@ -21,28 +22,14 @@ public class LocationEntity {
     private double latitude;
     private double longitude;
 
-    @Embedded
+    @OneToOne(cascade = CascadeType.PERSIST)
     private WeatherEntity weather;
 
+//    @OneToMany
+//    @JoinColumn(name = "LOCATION_ID")
+//    private Set<WeatherEntity> weatherHistory;
+
     public LocationEntity() {
-    }
-
-    public LocationEntity(String city, String countryCode) {
-        this.city = city;
-        this.countryCode = countryCode;
-    }
-
-    public LocationEntity(double latitude, double longitude) {
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-
-    public LocationEntity(String city, String countryCode, double latitude, double longitude, WeatherEntity weather) {
-        this.city = city;
-        this.countryCode = countryCode;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.weather = weather;
     }
 
     public Long getId() {
