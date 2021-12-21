@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity(name = "locations")
+@Entity
 @Table(name = "LOCATIONS")
 public class LocationEntity {
     @Id
@@ -30,16 +30,6 @@ public class LocationEntity {
 //    private Set<WeatherEntity> weatherHistory;
 
     public LocationEntity() {
-    }
-
-    public LocationEntity(String city, String countryCode) {
-        this.city = city;
-        this.countryCode = countryCode;
-    }
-
-    public LocationEntity(double latitude, double longitude) {
-        this.latitude = latitude;
-        this.longitude = longitude;
     }
 
     public Long getId() {
