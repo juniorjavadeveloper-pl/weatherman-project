@@ -19,7 +19,9 @@ public class OpenWeatherMapper {
         LOGGER.info("from(" + weatherDataResponse + ")");
         LocationModel locationModel = new LocationModel();
         WeatherModel weatherModel = new WeatherModel();
+
         locationModel.setWeather(weatherModel);
+        weatherModel.setLocation(locationModel);
 
         if (weatherDataResponse != null) {
             Coord weatherDataResponseCoord = weatherDataResponse.getCoord();

@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +19,9 @@ public class WeatherEntity {
     private Integer humidity;
     @Column(name = "WIND_SPEED")
     private Double windSpeed;
+
+    @OneToOne
+    private LocationEntity location;
 
     public WeatherEntity() {
     }
@@ -62,6 +66,14 @@ public class WeatherEntity {
         this.windSpeed = windSpeed;
     }
 
+    public LocationEntity getLocation() {
+        return location;
+    }
+
+    public void setLocation(LocationEntity location) {
+        this.location = location;
+    }
+
     @Override
     public String toString() {
         return "WeatherEntity{" +
@@ -70,6 +82,7 @@ public class WeatherEntity {
                 ", pressure=" + pressure +
                 ", humidity=" + humidity +
                 ", windSpeed=" + windSpeed +
+                ", location=" + location +
                 '}';
     }
 }

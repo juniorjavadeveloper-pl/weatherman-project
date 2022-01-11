@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import pl.juniorjavadeveloper.project.weathermanproject.repository.WeatherRepository;
+import pl.juniorjavadeveloper.project.weathermanproject.repository.entity.WeatherEntity;
 import pl.juniorjavadeveloper.project.weathermanproject.service.mapper.WeatherMapper;
 import pl.juniorjavadeveloper.project.weathermanproject.web.model.WeatherModel;
 
@@ -25,6 +26,8 @@ public class WeatherService {
 
     public void create(WeatherModel weatherModel) {
         LOGGER.info("create({})", weatherModel);
+        WeatherEntity weatherEntity = weatherMapper.from(weatherModel);
+        weatherRepository.save(weatherEntity);
     }
 
     public void read(Long id) {

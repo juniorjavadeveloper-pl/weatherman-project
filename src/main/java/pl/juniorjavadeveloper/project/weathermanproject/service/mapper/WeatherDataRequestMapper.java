@@ -18,4 +18,12 @@ public class WeatherDataRequestMapper {
         LOGGER.info("from(...) = {}", locationModel);
         return locationModel;
     }
+
+    public WeatherDataRequestModel from(LocationModel locationModel) {
+        LOGGER.info("from({})", locationModel);
+        ModelMapper modelMapper = new ModelMapper();
+        WeatherDataRequestModel weatherDataRequestModel = modelMapper.map(locationModel, WeatherDataRequestModel.class);
+        LOGGER.info("from(...) = {}", weatherDataRequestModel);
+        return weatherDataRequestModel;
+    }
 }
