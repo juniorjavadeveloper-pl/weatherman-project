@@ -12,13 +12,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class WeathermanService {
-    private static final Logger LOGGER = LoggerFactory.getLogger(WeathermanService.class);
+public class LocationService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LocationService.class);
 
     private final LocationRepository locationRepository;
     private final LocationMapper locationMapper;
 
-    public WeathermanService(LocationRepository locationRepository, LocationMapper locationMapper) {
+    public LocationService(LocationRepository locationRepository, LocationMapper locationMapper) {
         this.locationRepository = locationRepository;
         this.locationMapper = locationMapper;
     }

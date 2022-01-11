@@ -12,8 +12,10 @@ import lombok.NoArgsConstructor;
 public class WeatherModel {
     private Long id;
 
-    private double temperature;
-    private int pressure;
-    private int humidity;
-    private double windSpeed;
+    private Double temperature;
+    private Integer pressure;
+    private Integer humidity;
+    private Double windSpeed;
+
+    private LocationModel location;
 }

@@ -22,7 +22,7 @@ public class LocationEntity {
     private double latitude;
     private double longitude;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
     private WeatherEntity weather;
 
 //    @OneToMany
@@ -88,7 +88,6 @@ public class LocationEntity {
                 ", countryCode='" + countryCode + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
-                ", weather=" + weather +
                 '}';
     }
 }
